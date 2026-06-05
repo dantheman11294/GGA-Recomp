@@ -123,6 +123,5 @@ functions = [
     { name = "FUN_8002138c", vram = 0x8002138C, size = 0x28 },
     { name = "FUN_80023f14", vram = 0x80023F14, size = 0x34 },
     { name = "func_8001AC80", vram = 0x8001ac80, size = 0x50 },
-    { name = "__osProbeTLB", vram = 0x80013d80, size = 0xb8 },
-    { name = "__osProbeTLB", vram = 0x80016070, size = 0x200 },
+    { name = "__osProbeTLB", vram = 0x80013d80, size = 0xb8 }
 ]
