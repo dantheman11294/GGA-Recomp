@@ -67,3 +67,11 @@ value = 0x00000000
 func = "FUN_8001ad84"
 vram = 0x8001AD94
 value = 0x00000000
+[[patches.instruction]]
+func="FUN_800077b0"
+vram=0x800077f0
+value=0x0
+[[patches.instruction]]
+func="FUN_80007b94"
+vram=0x80007bc4
+value=0x0
