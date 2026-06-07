@@ -3,7 +3,7 @@
 [input]
 entrypoint = 0x80000400
 output_func_path = "/home/bazzite/recomp/Goemon64Recomp/RecompiledFuncs"
-rom_file_path = "/home/bazzite/recomp/gga.us.z64"
+rom_file_path = "/home/bazzite/recomp/gga.us.decompressed.z64"
 symbols_file_path = "gga.splat.syms.toml"
 trace_mode = true
 bss_section_suffix = "_bss"
