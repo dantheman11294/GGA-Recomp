@@ -209,6 +209,11 @@ def main():
 
     funcs = parse_functions(args.asm_dir)
     funcs = apply_overrides(funcs, load_overrides(args.overrides))
+    # C reserves the name 'main'; the disassembler labeled 0x80000DE0
+    # 'main', which clang rejects as a function signature. Rename it.
+    for _f in funcs:
+        if _f[2] == 'main':
+            _f[2] = 'func_%08X' % _f[0]
 
     # ---- single-section (back-compatible) ----
     if not args.yaml:

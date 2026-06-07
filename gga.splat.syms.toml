@@ -31,7 +31,7 @@ functions = [
   { name = "func_80000D30", vram = 0x80000d30, size = 0x8c },
   { name = "func_80000DBC", vram = 0x80000dbc, size = 0x10 },
   { name = "func_80000DCC", vram = 0x80000dcc, size = 0x14 },
-  { name = "main", vram = 0x80000de0, size = 0x5c },
+  { name = "func_80000DE0", vram = 0x80000de0, size = 0x5c },
   { name = "func_80000E3C", vram = 0x80000e3c, size = 0xd4 },
   { name = "func_80000F10", vram = 0x80000f10, size = 0x384 },
   { name = "func_80001294", vram = 0x80001294, size = 0x15c },
