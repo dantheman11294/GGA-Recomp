@@ -38,7 +38,7 @@ This project is a means to an end. My main goal is to try and automate the proce
 | `GGA_RECOMP_STATUS.md` | Detailed session notes and reverse-engineering findings |
 | `ghidra_scripts/` | Ghidra helper scripts used during analysis |
 
-The recompiler host project lives at [Goemon64Recomp](https://github.com/klorfmorf/Goemon64Recomp) and is not duplicated here.
+The Mystical Ninja Starring Goemon/GGA host project lives at [Goemon64Recomp](https://github.com/klorfmorf/Goemon64Recomp) and is not duplicated here.
 
 ---
 
