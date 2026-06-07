@@ -1,0 +1,201 @@
+{
+  "generated_at": "2026-06-06 01:21:48",
+  "elapsed_sec": 597.8,
+  "shape": {
+    "syms_functions": 111,
+    "emitted_functions": 243,
+    "funcs_c_files": 6,
+    "stubs": 23,
+    "ignored": 0
+  },
+  "recompiler": {
+    "unhandled_types": {},
+    "static_targets": 0,
+    "named_errors": []
+  },
+  "orphaned_labels": {
+    "total": 10,
+    "affected_functions": 7,
+    "by_subclass": {
+      "undersized_boundary": 4,
+      "missing_function_region": 2,
+      "?": 4
+    },
+    "by_branch_kind": {
+      "bnel": 3,
+      "beql": 1,
+      "beq": 2,
+      "?": 4
+    },
+    "all": [
+      {
+        "file": "funcs_0.c",
+        "func": "FUN_800077b0",
+        "label": "L_80007804",
+        "label_addr": 2147514372,
+        "func_vram": "0x800077b0",
+        "func_size": "0x50",
+        "branch_at": "0x800077f0",
+        "branch_kind": "bnel",
+        "branch_is_likely": true,
+        "next_func": "0x80007948",
+        "bytes_past_funcend": 4,
+        "subclass": "undersized_boundary"
+      },
+      {
+        "file": "funcs_0.c",
+        "func": "FUN_80007b94",
+        "label": "L_80007BD8",
+        "label_addr": 2147515352,
+        "func_vram": "0x80007b94",
+        "func_size": "0x40",
+        "branch_at": "0x80007bc4",
+        "branch_kind": "bnel",
+        "branch_is_likely": true,
+        "next_func": "0x80007c40",
+        "bytes_past_funcend": 4,
+        "subclass": "undersized_boundary"
+      },
+      {
+        "file": "funcs_1.c",
+        "func": "FUN_8001ac04",
+        "label": "L_8001AC2C",
+        "label_addr": 2147593260,
+        "func_vram": "0x8001ac04",
+        "func_size": "0x24",
+        "branch_at": "0x8001ac18",
+        "branch_kind": "bnel",
+        "branch_is_likely": true,
+        "next_func": "0x8001ac78",
+        "bytes_past_funcend": 4,
+        "subclass": "undersized_boundary"
+      },
+      {
+        "file": "funcs_1.c",
+        "func": "FUN_8001ac04",
+        "label": "L_8001AC3C",
+        "label_addr": 2147593276,
+        "func_vram": "0x8001ac04",
+        "func_size": "0x24",
+        "branch_at": "0x8001ac10",
+        "branch_kind": "beql",
+        "branch_is_likely": true,
+        "next_func": "0x8001ac78",
+        "bytes_past_funcend": 20,
+        "subclass": "undersized_boundary"
+      },
+      {
+        "file": "funcs_1.c",
+        "func": "FUN_8001ac78",
+        "label": "L_8001ACD0",
+        "label_addr": 2147593424,
+        "func_vram": "0x8001ac78",
+        "func_size": "0x54",
+        "branch_at": "0x8001ac90",
+        "branch_kind": "beq",
+        "branch_is_likely": false,
+        "next_func": "0x8001ac80",
+        "bytes_past_funcend": 4,
+        "subclass": "missing_function_region"
+      },
+      {
+        "file": "funcs_1.c",
+        "func": "FUN_8001ad00",
+        "label": "L_8001AD88",
+        "label_addr": 2147593608,
+        "func_vram": "0x8001ad00",
+        "func_size": "0x84",
+        "branch_at": "0x8001ad10",
+        "branch_kind": "beq",
+        "branch_is_likely": false,
+        "next_func": "0x8001ad84",
+        "bytes_past_funcend": 4,
+        "subclass": "missing_function_region"
+      },
+      {
+        "file": "funcs_4.c",
+        "func": "static_1_80011EA0",
+        "label": "L_80012094",
+        "label_addr": 2147557524,
+        "func_vram": null,
+        "func_size": null
+      },
+      {
+        "file": "funcs_4.c",
+        "func": "static_1_80011EA0",
+        "label": "L_800120B0",
+        "label_addr": 2147557552,
+        "func_vram": null,
+        "func_size": null
+      },
+      {
+        "file": "funcs_5.c",
+        "func": "static_1_80019C40",
+        "label": "L_8001A960",
+        "label_addr": 2147592544,
+        "func_vram": null,
+        "func_size": null
+      },
+      {
+        "file": "funcs_5.c",
+        "func": "static_1_80019C40",
+        "label": "L_8001A968",
+        "label_addr": 2147592552,
+        "func_vram": null,
+        "func_size": null
+      }
+    ],
+    "affected_function_list": [
+      "FUN_800077b0",
+      "FUN_80007b94",
+      "FUN_8001ac04",
+      "FUN_8001ac78",
+      "FUN_8001ad00",
+      "static_1_80011EA0",
+      "static_1_80019C40"
+    ]
+  },
+  "build_pass1_with_gotos": {
+    "rc": 2,
+    "compile_conflicting_types": 0,
+    "compile_undeclared_labels": 10,
+    "missing_headers": [],
+    "cmake_errors": []
+  },
+  "build_pass2_relink_probe": {
+    "rc": 2,
+    "undefined_reference_count": 0,
+    "undefined_references": [],
+    "multiple_definition_count": 0,
+    "multiple_definitions": [],
+    "remaining_compile_errors": 5,
+    "remaining_compile_samples": [
+      [
+        "/home/bazzite/recomp/Goemon64Recomp/RecompiledFuncs/funcs_2.c",
+        "15546",
+        "expression is not assignable"
+      ],
+      [
+        "/home/bazzite/recomp/Goemon64Recomp/RecompiledFuncs/funcs_2.c",
+        "15551",
+        "expression is not assignable"
+      ],
+      [
+        "/home/bazzite/recomp/Goemon64Recomp/RecompiledFuncs/funcs_2.c",
+        "15573",
+        "expression is not assignable"
+      ],
+      [
+        "/home/bazzite/recomp/Goemon64Recomp/RecompiledFuncs/funcs_4.c",
+        "17285",
+        "expected '}'"
+      ],
+      [
+        "/home/bazzite/recomp/Goemon64Recomp/RecompiledFuncs/funcs_5.c",
+        "5542",
+        "expected '}'"
+      ]
+    ],
+    "binary_after_probe": "/home/bazzite/recomp/Goemon64Recomp/build/texture_packer"
+  }
+}

@@ -1,0 +1,12 @@
+# Config file for Goemon's Great Adventure (USA) Recompilation.
+
+[input]
+entrypoint = 0x80000400
+output_func_path = "/home/bazzite/recomp/Goemon64Recomp/RecompiledFuncs"
+rom_file_path = "/home/bazzite/recomp/gga.us.z64"
+symbols_file_path = "gga.splat.syms.toml"
+trace_mode = true
+bss_section_suffix = "_bss"
+
+[patches]
+stubs = ["func_80000F10", "func_800107B0", "func_80011EA0", "func_80019C40", "func_80001294", "func_80001A24", "func_80024470", "func_80024478", "func_8000FC90", "func_8000FD50", "func_80010294", "func_800104D4", "func_80012150", "func_80013D80", "func_80014A50", "func_8001A9A0", "func_8001AC80", "func_8001AD00", "func_8001C050", "func_8001E860", "func_800204E0"]
