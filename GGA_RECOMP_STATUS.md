@@ -95,3 +95,27 @@ Goemon64Recomp/lib/mnsg/config/usa/splat.yaml   MNSG overlay template (file_11..
 Byte-layout/root-cause guessing repeatedly failed; reading actual source (runtime
 decompressor, splat output, MNSG config) or using authoritative tools succeeded.
 For overlay VRAM mapping: read the loader / ask community, don't sweep bytes.
+
+=== SESSION UPDATE: overlay recompilation ===
+SOLVED this session:
+- Overlay VRAM map via D_80026AF8 window table:
+    file_5 @ 0x800C7B10 (resident shared library; owns 0x800D.. exports)
+    file_7/8/9 @ 0x801738A0 (mutually-exclusive stage overlays, exclusive_ram_id)
+- splat retargeted to gga.us.decompressed.z64 (was reading compressed ROM -> garbage)
+- entrypoint declared as recomp_entrypoint in .entry section (splat_to_syms.py)
+- relocatable_sections registered via gga.overlays.txt (MNSG schema)
+- Trailing rodata boundaries fixed for all 4 overlays (splat YAML [code][rodata] split):
+    file_5 rodata @ 0x800FA6A4 | file_7 @ 0x80175C68
+    file_8 @ 0x801A6DA0       | file_9 @ 0x8019AD58 (corrected from scanner)
+  -> function count 2752 -> 2634, eliminated data-as-code error class
+- Tools added: autofix_sizes.py (resize/stub loop w/ guards), scan_overlay_rodata.py
+
+OPEN (next session): overlay function bodies don't all recompile.
+- Recurring errors: "Unhandled branch", "Invalid alignment on sw", bogus jal targets,
+  ALL pointing to splat needing INTERIOR rodata/boundary analysis per overlay
+  (small data tables at function starts / between functions, e.g. file_7 has data
+  at +0x10 from its start: 0x801738B0 reads as branch to 0x80C23890).
+- file_5 currently fully stubbed (850 funcs) as extern library to isolate file_7/8/9.
+- recomp_overlays.inl still empty -> need ONE clean run to validate registration.
+- FIX DIRECTION: enable splat find_file_boundaries + per-overlay rodata segmentation
+  (mirror how MNSG decomp tunes overlay rodata), re-split, re-gen syms, recompile.

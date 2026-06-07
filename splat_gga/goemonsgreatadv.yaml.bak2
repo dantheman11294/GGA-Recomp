@@ -1,5 +1,5 @@
 name: Goemons Great Adv (North America)
-sha1: 19ab1cd5f9e8df7d954ee8099907afcc40adf493
+sha1: 9f9e860816f9e2a68bb5f4f56086e0c7450c64d7
 options:
   basename: goemonsgreatadv
   target_path: baserom.z64
@@ -74,6 +74,8 @@ segments:
     start: 0x3F910
     follows_vram: main
 
+  - [0x1000000]
+
   # ---- resident shared library (asserted from D_80026AF8 window 0x800C7B10..0x801738A0) ----
   - name: file_5
     type: code
@@ -83,8 +85,7 @@ segments:
     overlay: yes
     exclusive_ram_id: lib_overlay
     subsegments:
-    - [0x582d30, asm]
-    - [0x5b58c4, rodata]
+    - [0x582D30, asm]
 
   # ---- stage overlays (mutually exclusive @ 0x801738A0) ----
   - name: file_7
@@ -95,8 +96,7 @@ segments:
     overlay: yes
     exclusive_ram_id: stage_overlay
     subsegments:
-    - [0x5caee0, asm]
-    - [0x5cd2a8, rodata]
+    - [0x5CAEE0, asm]
 
   - name: file_8
     type: code
@@ -106,8 +106,7 @@ segments:
     overlay: yes
     exclusive_ram_id: stage_overlay
     subsegments:
-    - [0x5d6300, asm]
-    - [0x609800, rodata]
+    - [0x5D6300, asm]
 
   - name: file_9
     type: code
@@ -117,10 +116,46 @@ segments:
     overlay: yes
     exclusive_ram_id: stage_overlay
     subsegments:
-    - [0x61a700, asm]
-    - [0x641bb8, rodata]
+    - [0x61A700, asm]
 
-  - name: rest
-    type: bin
-    start: 0x645630
-  - [0x1000000]
+  # ---- resident shared library (asserted from D_80026AF8 window 0x800C7B10..0x801738A0) ----
+  - name: file_5
+    type: code
+    start: 0x582D30
+    vram: 0x800C7B10
+    subalign: 16
+    overlay: yes
+    exclusive_ram_id: lib_overlay
+    subsegments:
+    - [0x582D30, asm]
+
+  # ---- stage overlays (mutually exclusive @ 0x801738A0) ----
+  - name: file_7
+    type: code
+    start: 0x5CAEE0
+    vram: 0x801738A0
+    subalign: 16
+    overlay: yes
+    exclusive_ram_id: stage_overlay
+    subsegments:
+    - [0x5CAEE0, asm]
+
+  - name: file_8
+    type: code
+    start: 0x5D6300
+    vram: 0x801738A0
+    subalign: 16
+    overlay: yes
+    exclusive_ram_id: stage_overlay
+    subsegments:
+    - [0x5D6300, asm]
+
+  - name: file_9
+    type: code
+    start: 0x61A700
+    vram: 0x801738A0
+    subalign: 16
+    overlay: yes
+    exclusive_ram_id: stage_overlay
+    subsegments:
+    - [0x61A700, asm]

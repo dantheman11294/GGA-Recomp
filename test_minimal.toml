@@ -1,0 +1,10 @@
+[input]
+entrypoint = 0x80000400
+output_func_path = "/home/bazzite/recomp/test_funcs_out"
+rom_file_path = "gga.us.z64"
+symbols_file_path = "test_minimal.syms.toml"
+bss_section_suffix = "_bss"
+
+[patches]
+stubs = []
+ignored = []
