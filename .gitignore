@@ -42,3 +42,4 @@ ghidra_*.zip.*
 # backup files
 *.bak
 *.bak[0-9]
+test_minimal.*
