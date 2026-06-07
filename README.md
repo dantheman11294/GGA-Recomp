@@ -4,6 +4,8 @@ Work-in-progress static recompilation of **Goemon's Great Adventure** (Nintendo 
 
 This repo contains the GGA-specific tooling, configuration, and reverse-engineering work developed to extend the existing [Goemon64Recomp](https://github.com/klorfmorf/Goemon64Recomp) project (which currently targets Mystical Ninja Starring Goemon) to support GGA.
 
+This project is a means to an end. My main goal is to try and automate the process of an n64 recomp project as much as possible from ROM to playable EXE. I am looking into building an agentic workflow that could potentially accomplish this - but as I am new to N64 modding in general, it's a far more practical first step to get this one game working and go from there.
+
 ---
 
 ## Current Status
@@ -43,6 +45,8 @@ The recompiler host project lives at [Goemon64Recomp](https://github.com/klorfmo
 ## How It Works
 
 GGA uses Konami's **Nisitenma-Ichigo** file system (same as MNSG). Files are compressed with either zlib (`0x78 0xDA` magic) or LZKN64 (bit 31 of the table entry set). The loader (`func_80003FF0` in main) walks a group descriptor table (`D_80026AF8`) to assign each file to a fixed VRAM window at runtime.
+
+I used Claude to help me here.
 
 Key VRAM windows discovered:
 
