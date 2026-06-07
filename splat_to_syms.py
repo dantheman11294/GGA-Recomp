@@ -106,6 +106,60 @@ def load_code_segments(yaml_path):
     return out
 
 
+def load_overrides(path):
+    """Parse 'func_NAME 0xSIZE' lines. Dedupe identical (name,size); error on
+    conflicting sizes for the same name. Returns {name: size}."""
+    if not path or not os.path.exists(path):
+        return {}
+    seen = {}
+    with open(path) as f:
+        for lineno, raw in enumerate(f, 1):
+            line = raw.split("#", 1)[0].strip()
+            if not line:
+                continue
+            parts = line.split()
+            if len(parts) != 2:
+                sys.exit(f"{path}:{lineno}: expected 'func_NAME 0xSIZE', got: {raw!r}")
+            name, size_s = parts
+            try:
+                size = int(size_s, 0)
+            except ValueError:
+                sys.exit(f"{path}:{lineno}: bad size {size_s!r} for {name}")
+            if size <= 0:
+                sys.exit(f"{path}:{lineno}: non-positive size {size_s} for {name}")
+            if name in seen and seen[name] != size:
+                sys.exit(f"{path}:{lineno}: conflicting size for {name}: "
+                         f"{seen[name]:#x} vs {size:#x}")
+            seen[name] = size
+    return seen
+
+
+def apply_overrides(funcs, overrides):
+    """For each override, force the named function's extent to [vram, vram+size)
+    and DROP any other symbol whose vram falls strictly inside that range.
+    Runs on the raw [vram, rom, name, last] list before section sizing."""
+    if not overrides:
+        return funcs
+    by_name = {f[2]: f for f in funcs}
+    drop_vrams = set()
+    for name, size in overrides.items():
+        tgt = by_name.get(name)
+        if tgt is None:
+            print(f"  [override] WARNING: {name} not found in disassembly; ignoring")
+            continue
+        vram = tgt[0]
+        new_end = vram + size
+        tgt[3] = new_end - 4
+        swallowed = [f for f in funcs if f is not tgt and vram < f[0] < new_end]
+        for f in swallowed:
+            drop_vrams.add(f[0])
+            print(f"  [override] {name}: size -> {size:#x}; merging out "
+                  f"{f[2]} @ {f[0]:#x}")
+        if not swallowed:
+            print(f"  [override] {name}: size -> {size:#x} (no symbols merged out)")
+    return [f for f in funcs if f[0] not in drop_vrams]
+
+
 def size_within_section(funcs_sorted):
     """funcs_sorted: list of [vram, rom, name, last_vram] sorted by vram.
     Returns [(vram, rom, name, size)] sized within this section only."""
@@ -149,9 +203,12 @@ def main():
     ap.add_argument("--yaml",
                     help="splat config path; enables one [[section]] per code segment")
     ap.add_argument("--out", default="gga.syms.toml")
+    ap.add_argument("--overrides",
+                    help="size-overrides file (func_NAME 0xSIZE per line)")
     args = ap.parse_args()
 
     funcs = parse_functions(args.asm_dir)
+    funcs = apply_overrides(funcs, load_overrides(args.overrides))
 
     # ---- single-section (back-compatible) ----
     if not args.yaml:

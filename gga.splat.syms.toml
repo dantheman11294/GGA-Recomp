@@ -355,8 +355,7 @@ functions = [
   { name = "func_8000FABC", vram = 0x8000fabc, size = 0x190 },
   { name = "func_8000FC4C", vram = 0x8000fc4c, size = 0x44 },
   { name = "func_8000FC90", vram = 0x8000fc90, size = 0xc0 },
-  { name = "func_8000FD50", vram = 0x8000fd50, size = 0x544 },
-  { name = "func_80010294", vram = 0x80010294, size = 0xe8 },
+  { name = "func_8000FD50", vram = 0x8000fd50, size = 0x62c },
   { name = "func_8001037C", vram = 0x8001037c, size = 0x100 },
   { name = "func_8001047C", vram = 0x8001047c, size = 0x48 },
   { name = "func_800104C4", vram = 0x800104c4, size = 0x10 },
@@ -647,7 +646,7 @@ vram = 0x800c7b10
 size = 0x32b94
 functions = [
   { name = "func_800C7B10", vram = 0x800c7b10, size = 0x4b0 },
-  { name = "func_800C7FC0", vram = 0x800c7fc0, size = 0x44 },
+  { name = "func_800C7FC0", vram = 0x800c7fc0, size = 0x28 },
   { name = "func_800C7FE8", vram = 0x800c7fe8, size = 0x14 },
   { name = "func_800C7FFC", vram = 0x800c7ffc, size = 0x14 },
   { name = "func_800C8010", vram = 0x800c8010, size = 0x47c },
