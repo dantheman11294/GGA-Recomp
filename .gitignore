@@ -35,3 +35,10 @@ ollama_escalator.py
 preflight.py
 test_new.py
 test_orch.py
+
+# duplicate-download suffixes (ghidra_*.zip already ignored, but not .zip.1/.zip.2)
+ghidra_*.zip.*
+*.zip.[0-9]
+# backup files
+*.bak
+*.bak[0-9]
