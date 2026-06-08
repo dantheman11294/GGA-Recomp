@@ -1,0 +1,26 @@
+diff --git a/librecomp/src/recomp.cpp b/librecomp/src/recomp.cpp
+index 19980ea..839fef6 100644
+--- a/librecomp/src/recomp.cpp
++++ b/librecomp/src/recomp.cpp
+@@ -410,7 +410,8 @@ extern "C" void osGetMemSize_recomp(uint8_t * rdram, recomp_context * ctx) {
+ }
+ 
+ enum class StatusReg {
+-    FR = 0x04000000,
++    FR  = 0x04000000,
++    CU1 = 0x20000000,  // COP1 (FPU) usable: no-op in static recomp, FPU always available
+ };
+ 
+ extern "C" void cop0_status_write(recomp_context* ctx, gpr value) {
+@@ -437,6 +438,11 @@ extern "C" void cop0_status_write(recomp_context* ctx, gpr value) {
+         changed &= ~(uint32_t)StatusReg::FR;
+     }
+ 
++    // CU1 toggles FPU usability; in static recompilation the FPU is always
++    // available (generated code uses ctx->f* unconditionally), so a change to
++    // this bit has no effect and is safe to ignore.
++    changed &= ~(uint32_t)StatusReg::CU1;
++
+     // If any other bits were changed, assert false as they're not handled currently
+     if (changed) {
+         printf("Unhandled status register bits changed: 0x%08X\n", changed);
