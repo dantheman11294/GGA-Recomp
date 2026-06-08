@@ -1,0 +1,151 @@
+# gga_func_name  ->  libultra_name   (verified vs MNSG japan_0, reloc-masked)
+func_8000EF20 osSendMesg  # reloc REIMPL
+func_8000F210 osRecvMesg  # reloc REIMPL
+func_8000F350 osSetIntMask  # reloc REIMPL
+func_8000F3F0 alUnlink  # exact
+func_8000F420 alLink  # exact
+func_8000F444 alClose  # reloc
+func_8000F47C alInit  # reloc
+func_8000F900 alSynSetVol  # reloc
+func_8000F9A0 _VirtualToPhysicalTask  # reloc
+func_8000FABC osSpTaskLoad  # reloc REIMPL
+func_8000FC4C osSpTaskStartGo  # reloc REIMPL
+func_8000FC90 osMapTLB  # exact
+func_8001037C __osEnqueueAndYield  # reloc
+func_8001047C __osEnqueueThread  # exact
+func_800104C4 __osPopThread  # exact
+func_80010660 __osDequeueThread  # exact
+func_800107B0 bzero  # exact
+func_800113D0 osCreateThread  # reloc REIMPL
+func_80011D54 alBnkfNew  # reloc
+func_80011E58 alSeqFileNew  # exact
+func_80011EA0 _allocatePVoice  # reloc
+func_80011F88 alSynAllocVoice  # reloc
+func_800120D0 osVirtualToPhysical  # reloc REIMPL
+func_80012150 osWritebackDCache  # exact REIMPL
+func_800121D0 osInitialize  # reloc REIMPL
+func_80012460 osPiRawReadIo  # exact
+func_800124C0 __ull_rshift  # exact
+func_80012528 __ull_div  # exact REIMPL
+func_80012564 __ll_lshift  # exact
+func_800125CC __ll_div  # exact REIMPL
+func_80012628 __ll_mul  # exact REIMPL
+func_80012658 __ull_divremi  # exact
+func_800126B8 __ll_mod  # exact
+func_800127E0 __osSetSR  # exact
+func_800127F0 __osGetSR  # exact
+func_80012800 alSynSetFXParam  # exact
+func_80012880 alSynStartVoice  # reloc
+func_80012B40 guPerspective  # reloc
+func_80012BA0 __osSpRawStartDma  # reloc
+func_80012D30 osViBlack  # reloc REIMPL
+func_80012DA0 __osSiRawReadIo  # reloc
+func_80013260 guMtxF2L  # exact
+func_80013360 guMtxIdentF  # exact
+func_800133E8 guMtxIdent  # reloc
+func_800134D0 osViSetMode  # reloc REIMPL
+func_80013540 guLookAtF  # reloc
+func_800137F8 guLookAt  # reloc
+func_80013CF0 alSynSetPitch  # reloc
+func_80013D80 __osProbeTLB  # exact
+func_80013E40 alSynSetPan  # reloc
+func_80015100 _freePVoice  # reloc
+func_80015138 _collectPVoices  # reloc
+func_80015198 __freeParam  # reloc
+func_80015480 alSynNew  # reloc
+func_80015780 alSaveNew  # reloc
+func_8001586C alResampleNew  # reloc
+func_800158F4 alLoadNew  # reloc
+func_8001599C alEnvmixerNew  # reloc
+func_80015A40 init_lpfilter  # exact
+func_80015F50 alMainBusPull  # exact
+func_80016070 _doModFunc  # exact
+func_80016118 _filterBuffer  # reloc
+func_800161D0 _saveBuffer  # reloc
+func_80016358 _loadBuffer  # reloc
+func_800164E4 _loadOutputBuffer  # reloc
+func_80016964 alFxParam  # exact
+func_8001697C alFxPull  # reloc
+func_80016CF0 alAuxBusPull  # exact
+func_80016DD0 _ldexpf  # exact
+func_80016DF8 _frexpf  # exact
+func_80016EE4 alEnvmixerParam  # exact
+func_80017194 _pullSubFrame  # reloc
+func_8001742C _getVol  # exact
+func_800174DC alEnvmixerPull  # reloc
+func_80017A30 alResampleParam  # reloc
+func_80017D30 alLoadParam  # reloc
+func_80017F04 alRaw16Pull  # exact
+func_800182B0 _decodeChunk  # exact
+func_800183DC alAdpcmPull  # reloc
+func_80018B40 __osDevMgrMain  # reloc
+func_80018FD0 osPiRawStartDma  # reloc
+func_800190B0 osSetEventMesg  # reloc REIMPL
+func_80019120 _nsqrtf  # exact
+func_80019360 osContStartQuery  # reloc REIMPL
+func_800193E4 osContGetQuery  # reloc REIMPL
+func_80019C40 alFilterNew  # exact
+func_80019C60 proutSprintf  # reloc
+func_80019C84 sprintf  # reloc
+func_80019CE0 _Putfld  # reloc
+func_8001A350 _Printf  # reloc
+func_8001AAD0 alHeapInit  # exact
+func_8001ABB0 memcpy  # exact
+func_8001ABDC strlen  # exact
+func_8001AC04 strchr  # exact
+func_8001AC50 osCreateMesgQueue  # reloc REIMPL
+func_8001AC80 osInvalICache  # exact REIMPL
+func_8001AD00 osInvalDCache  # exact REIMPL
+func_8001ADB0 alSynSetFXMix  # reloc
+func_8001AE50 alSaveParam  # exact
+func_8001AE84 alSavePull  # exact
+func_8001AF70 alSynGetFXRef  # exact
+func_8001B0F0 osJamMesg  # reloc REIMPL
+func_8001B240 osSetThreadPri  # reloc REIMPL
+func_8001B320 osGetThreadPri  # reloc REIMPL
+func_8001B340 osViSwapBuffer  # reloc REIMPL
+func_8001B540 guPosition  # reloc
+func_8001B5B0 osEPiRawStartDma  # reloc REIMPL
+func_8001B7E0 osSpTaskYielded  # reloc REIMPL
+func_8001B980 osGetTime  # reloc REIMPL
+func_8001BA10 __osTimerServicesInit  # reloc
+func_8001BA9C __osTimerInterrupt  # reloc
+func_8001BC14 __osSetTimerIntr  # reloc
+func_8001BC88 __osInsertTimer  # reloc
+func_8001BE10 __osSetGlobalIntMask  # reloc
+func_8001BE60 osAiSetFrequency  # reloc REIMPL
+func_8001BFC0 guNormalize  # reloc
+func_8001C050 __osSetCompare  # exact
+func_8001C060 _bcopy  # exact
+func_8001C3F0 __osResetGlobalIntMask  # reloc
+func_8001C6C0 guFrustumF  # reloc
+func_8001C814 guFrustum  # reloc
+func_8001C880 __osDisableInt  # exact REIMPL
+func_8001C8A0 __osRestoreInt  # exact REIMPL
+func_8001C8C0 __osViInit  # reloc
+func_8001CD00 osPiGetCmdQueue  # reloc
+func_8001CEA0 osViSetSpecialFeatures  # reloc REIMPL
+func_8001D060 osViSetEvent  # reloc REIMPL
+func_8001D0D0 alSynAddPlayer  # reloc
+func_8001D3C0 __osSetFpcCsr  # exact REIMPL
+func_8001E370 osPfsIsPlug  # reloc
+func_8001E860 osMapTLBRdb  # exact
+func_8001E8C0 osYieldThread  # reloc
+func_8001E910 alSynStartVoiceParams  # reloc
+func_8001F180 osSetTimer  # reloc REIMPL
+func_8001FD20 lldiv  # reloc
+func_8001FE20 ldiv  # exact
+func_8001FEB0 _Litob  # reloc
+func_80020150 __osSiRawWriteIo  # reloc
+func_800201A0 __osSpSetStatus  # exact
+func_800204D0 __osGetActiveQueue  # reloc
+func_800204E0 osWritebackDCacheAll  # exact REIMPL
+func_80020510 alHeapDBAlloc  # exact
+func_80020570 osPfsInit  # reloc
+func_80020630 osStartThread  # reloc REIMPL
+func_80020780 osViSetYScale  # reloc REIMPL
+func_800207E0 alSynAllocFX  # reloc
+func_80020880 alSynStopVoice  # reloc
+func_80020900 alSynDelete  # exact
+func_800209C0 __osAiDeviceBusy  # exact
+func_80020A30 __osSpSetPc  # exact REIMPL

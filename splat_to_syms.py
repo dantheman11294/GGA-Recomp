@@ -209,6 +209,21 @@ def main():
 
     funcs = parse_functions(args.asm_dir)
     funcs = apply_overrides(funcs, load_overrides(args.overrides))
+    # Rename functions to their libultra names so N64Recomp's reimplemented_funcs
+    # interception fires (routes them to the runtime instead of recompiling raw
+    # register access). Names verified by byte-match vs MNSG; see gga.reimpl_names.txt.
+    import os as _os
+    _namef = _os.path.join(_os.path.dirname(args.asm_dir.rstrip('/')) or '.', 'gga.reimpl_names.txt')
+    _namef = 'gga.reimpl_names.txt' if _os.path.exists('gga.reimpl_names.txt') else _namef
+    if _os.path.exists(_namef):
+        _ren={}
+        for _l in open(_namef):
+            _l=_l.split('#',1)[0].split()
+            if len(_l)==2: _ren[_l[0]]=_l[1]
+        _n=0
+        for _f in funcs:
+            if _f[2] in _ren: _f[2]=_ren[_f[2]]; _n+=1
+        print(f'  [names] applied {_n} libultra renames from {_namef}')
     # C reserves the name 'main'; the disassembler labeled 0x80000DE0
     # 'main', which clang rejects as a function signature. Rename it.
     for _f in funcs:

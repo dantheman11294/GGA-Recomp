@@ -9,4 +9,4 @@ trace_mode = true
 bss_section_suffix = "_bss"
 
 [patches]
-stubs = ["func_8019ABE4", "func_80024478", "func_80024470", "func_800204E0", "func_8001E860", "func_8001C050", "func_8001AD00", "func_8001AC80", "func_8001A9A0", "func_80014A50", "func_80013D80", "func_80012150", "func_800104D4", "func_8000FC90", "func_8000FD50"]
+stubs = ["func_8019ABE4", "func_80024478", "func_80024470", "func_8001E860", "func_8001C050", "func_8001A9A0", "func_80014A50", "func_80013D80", "func_800104D4", "func_8000FC90", "func_8000FD50", "func_800189FC", "func_80012460", "func_8001C8C0"]

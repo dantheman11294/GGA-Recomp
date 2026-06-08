@@ -43,3 +43,15 @@ ghidra_*.zip.*
 *.bak
 *.bak[0-9]
 test_minimal.*
+
+# --- Generated game code: DERIVED FROM THE USER'S ROM, never commit ---
+# These are produced by N64Recomp from the user's own ROM at build time.
+# Committing them would redistribute copyrighted game code (the "recut" pitfall).
+RecompiledFuncs/
+recomp_overlays.inl
+funcs_*.c
+funcs.h
+*.decompressed.z64
+# decompressed/expanded ROM forms are still the game ROM
+*.decompressed
+gga_split/
